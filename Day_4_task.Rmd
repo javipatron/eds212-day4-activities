@@ -1,0 +1,47 @@
+---
+title: "r-exploring"
+author: "Javier Patron"
+date: "2022-08-04"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(tidyverse)
+library(skimr)
+library(GGally)
+
+View(diamonds)
+
+names(diamonds)
+dim(diamonds)
+summary(diamonds)
+head(diamonds)
+tail(diamonds)
+skim::skim(diamonds)
+```
+
+# Create a pairs plot using ggpairs ()
+
+```{r}
+ggpairs(diamonds)
+```
+
+# Create a basic ggplot scatterplot of diamond price (price) as a funcion of size (carat)
+
+```{r}
+ggplot(data=diamonds, aes(x=price, y=carat)) + geom_point()
+```
+
+# Create a histogram showing the distribution of values in the carat column (recall: a histogram only requires a single variable, e.g. aes(x = carat))
+
+```{r}
+ggplot(data=diamonds, aes(x=carat))+ geom_histogram(color="blue")
+```
+
+
+
